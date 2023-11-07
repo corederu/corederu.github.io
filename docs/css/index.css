@@ -19,6 +19,29 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+}
+
+.header_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header_right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.githib_a {
+    color: black;
+    text-decoration: none;
+}
+
+.githib_a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .avatar {
@@ -41,7 +64,7 @@ header {
     margin-bottom: 8rem;
     margin-left: 2em;
     margin-right: 2em;
-    height: 10em;
+    height: 12em;
 
     display: flex;
     flex-direction: row;
