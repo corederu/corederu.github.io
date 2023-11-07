@@ -2,10 +2,122 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>corederu</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Corentin Deruyck</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <h1>My wonderful Website</h1>
+  <header>
+    <a href="https://corederu.github.io/" class="avatar_a">
+      <img src="https://avatars.githubusercontent.com/u/107493794?v=4" alt="corederu avatar" class="avatar">
+    </a>
+    <h1 class="title">Corederu</h1>
+  </header>
+
+  <div class="perso">
+    <h1 class="perso_title">I'm Corentin Deruyck</h1>
+  </div>
+  
+  <div class="my_projects">
+    <h1 class="my_projects_title">My Projects</h1>
+
+    <div class="my_projects_list">
+
+      <div class="one_project" onclick="window.location.href='https://github.com/corederu/openvideohub';">
+        <div class="project_image">
+          <img src="src/github-mark.png" alt="github logo" class="logo_github">
+        </div>
+        <div class="project_text">
+          <h2 class="project_title">Open Video Hub</h2>
+          <p class="project_description">A video hosting website open source</p>
+        </div>
+      </div>
+
+      <div class="one_project" onclick="window.location.href='https://github.com/corederu/gpt-text-to-email';">
+        <div class="project_image">
+          <img src="src/github-mark.png" alt="github logo" class="logo_github">
+        </div>
+        <div class="project_text">
+          <h2 class="project_title">GPT text to email</h2>
+          <p class="project_description">Transform your text into email</p>
+        </div>
+      </div>
+
+      <div class="one_project" onclick="window.location.href='https://github.com/corederu/ai-playing-snake';">
+        <div class="project_image">
+          <img src="src/github-mark.png" alt="github logo" class="logo_github">
+        </div>
+        <div class="project_text">
+          <h2 class="project_title">Snake AI</h2>
+          <p class="project_description">An AI playing Snake game</p>
+        </div>
+      </div>
+
+      <div class="one_project" onclick="window.location.href='https://github.com/corederu/ai-eating-grass';">
+        <div class="project_image">
+          <img src="src/github-mark.png" alt="github logo" class="logo_github">
+        </div>
+        <div class="project_text">
+          <h2 class="project_title">AI eating grass</h2>
+          <p class="project_description">An AI eating grass to reproduce</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </body>
+
+<script>
+  const h1Element = document.querySelector('.perso_title');
+
+  const names = ["I'm Corentin Deruyck", "I'm Corederu"];
+  let currentIndex = 0;
+  let currentText = "I'm Corentin Deruyck";
+  let currentCharIndex = currentText.length-1;
+  let isAppearing = true;
+
+  function updateName() {
+      const name = names[currentIndex];
+      if (isAppearing) {
+          if (currentCharIndex < name.length) {
+              currentText += name[currentCharIndex];
+              h1Element.textContent = currentText;
+              currentCharIndex++;
+          } else {
+              isAppearing = false;
+              return 1;
+          }
+      } else {
+          if (currentText.length > 4) {
+              currentText = "I'm " + currentText.substring(4, currentText.length - 1);
+              h1Element.textContent = currentText;
+              currentCharIndex--;
+          } else {
+              isAppearing = true;
+              
+              if (currentIndex < names.length - 1) {
+                  currentIndex++;
+              } else {
+                  currentIndex = 0;
+              }
+          }
+      }
+      return 0;
+  }
+
+  function callUpdateName() {
+      let returnval = updateName();
+      if (returnval == 1) {
+        setTimeout(function() {
+          callUpdateName();
+        }, 1000);
+      } else {
+        setTimeout(function() {
+          callUpdateName();
+        }, 100);
+      }
+  }
+
+  callUpdateName();
+
+</script>
 </html>
