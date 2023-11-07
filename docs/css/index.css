@@ -124,6 +124,10 @@ header {
         align-items: flex-start;
         justify-content: flex-start;
     }
+
+    .perso {
+        height: 15em;
+    }
 }
 
 @media screen and (min-width: 1000px) {
@@ -132,5 +136,9 @@ header {
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+    }
+
+    .perso {
+        height: 12em;
     }
 }
